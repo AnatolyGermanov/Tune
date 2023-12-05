@@ -3,9 +3,6 @@ const path = require('node:path')
 // Необходимые классы из discord.js
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 
-// Токен бота
-const { token } = require('./config.json');
-
 // Создание нового экземпляра клиента
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates] });
 
@@ -43,7 +40,7 @@ for (const file of eventFiles) {
 }
 
 // Войти в Discord с помощью токена клиента
-client.login(token);
+client.login(process.env.BOT_TOKEN);
 
 //const { generateDependencyReport } = require('@discordjs/voice');
 //console.log(generateDependencyReport());
